@@ -18,4 +18,11 @@ public class ProductRepository {
   public List<Product> getProducts() {
     return products;
   }
+
+  public Product getProductById(Number id) {
+    return products.stream()
+      .filter(product -> product.getId().equals(id))
+      .findFirst()
+      .orElse(null);
+  }
 }
