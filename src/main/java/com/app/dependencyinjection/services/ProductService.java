@@ -6,13 +6,14 @@ import java.util.stream.Collectors;
 import com.app.dependencyinjection.models.Product;
 import com.app.dependencyinjection.repositories.ProductRepository;
 
-public class ProductService {
+public class ProductService implements ProductServiceInterface{
   private ProductRepository productRepository;
 
   public ProductService() {
     this.productRepository = new ProductRepository();
   }
 
+  @Override
   public List<Product> getProducts() {
     List<Product> products = productRepository.getProducts();
     return products.stream().map(product -> {
@@ -24,6 +25,7 @@ public class ProductService {
     .collect(Collectors.toList());
   }
 
+  @Override
   public Product getProductById(Integer id) {
     return productRepository.getProductById(id);
   }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.app.dependencyinjection.models.Product;
 
-public class ProductRepository {
+public class ProductRepository implements ProductRepositoryInterface {
   List<Product> products;
 
   public ProductRepository() {
@@ -15,10 +15,12 @@ public class ProductRepository {
     );
   }
 
+  @Override
   public List<Product> getProducts() {
     return products;
   }
 
+  @Override
   public Product getProductById(Integer id) {
     return products.stream()
       .filter(product -> product.getId().equals(id))
