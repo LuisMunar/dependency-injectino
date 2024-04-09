@@ -19,7 +19,7 @@ public class ProductRepository {
     return products;
   }
 
-  public Product getProductById(Number id) {
+  public Product getProductById(Integer id) {
     return products.stream()
       .filter(product -> product.getId().equals(id))
       .findFirst()

@@ -1,23 +1,23 @@
 package com.app.dependencyinjection.models;
 
 public class Product {
-  private Number id;
+  private Integer id;
   private String name;
   private Double price;
 
   public Product() {}
 
-  public Product(Number id, String name, Double price) {
+  public Product(Integer id, String name, Double price) {
     this.id = id;
     this.name = name;
     this.price = price;
   }
 
-  public Number getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(Number id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

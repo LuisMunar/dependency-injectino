@@ -16,7 +16,7 @@ public class ProductService {
     return productRepository.getProducts();
   }
 
-  public Product getProductById(Number id) {
+  public Product getProductById(Integer id) {
     return productRepository.getProductById(id);
   }
 }
