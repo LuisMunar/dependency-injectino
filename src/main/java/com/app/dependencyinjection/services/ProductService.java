@@ -17,7 +17,8 @@ public class ProductService {
     List<Product> products = productRepository.getProducts();
     return products.stream().map(product -> {
       Integer price = product.getPrice().intValue() * 2;
-      Product newProduct = new Product(product.getId(), product.getName(), price.doubleValue());
+      Product newProduct = (Product) product.clone();
+      newProduct.setPrice(price.doubleValue());
       return newProduct;
     })
     .collect(Collectors.toList());

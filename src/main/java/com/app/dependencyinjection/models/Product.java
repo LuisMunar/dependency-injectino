@@ -1,6 +1,6 @@
 package com.app.dependencyinjection.models;
 
-public class Product {
+public class Product implements Cloneable {
   private Integer id;
   private String name;
   private Double price;
@@ -35,5 +35,14 @@ public class Product {
 
   public void setPrice(Double price) {
     this.price = price;
+  }
+
+  @Override
+  public Object clone() {
+    try {
+      return (Product) super.clone();
+    } catch (CloneNotSupportedException e) {
+      return new Product(this.id, this.name, this.price);
+    }
   }
 }
