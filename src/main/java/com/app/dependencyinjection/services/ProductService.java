@@ -7,16 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.app.dependencyinjection.models.Product;
-import com.app.dependencyinjection.repositories.ProductRepository;
+import com.app.dependencyinjection.repositories.ProductRepositoryInterface;
 
 @Component
 public class ProductService implements ProductServiceInterface{
   @Autowired
-  private ProductRepository productRepository;
+  private ProductRepositoryInterface productRepositoryInterface;
 
   @Override
   public List<Product> getProducts() {
-    List<Product> products = productRepository.getProducts();
+    List<Product> products = productRepositoryInterface.getProducts();
     return products.stream().map(product -> {
       Integer price = product.getPrice().intValue() * 2;
       Product newProduct = (Product) product.clone();
@@ -28,6 +28,6 @@ public class ProductService implements ProductServiceInterface{
 
   @Override
   public Product getProductById(Integer id) {
-    return productRepository.getProductById(id);
+    return productRepositoryInterface.getProductById(id);
   }
 }
