@@ -1,6 +1,7 @@
 package com.app.dependencyinjection.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.app.dependencyinjection.models.Product;
 import com.app.dependencyinjection.repositories.ProductRepository;
@@ -13,7 +14,13 @@ public class ProductService {
   }
 
   public List<Product> getProducts() {
-    return productRepository.getProducts();
+    List<Product> products = productRepository.getProducts();
+    return products.stream().map(product -> {
+      Integer price = product.getPrice().intValue() * 2;
+      Product newProduct = new Product(product.getId(), product.getName(), price.doubleValue());
+      return newProduct;
+    })
+    .collect(Collectors.toList());
   }
 
   public Product getProductById(Integer id) {
