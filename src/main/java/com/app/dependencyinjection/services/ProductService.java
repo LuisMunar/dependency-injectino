@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.app.dependencyinjection.models.Product;
 import com.app.dependencyinjection.repositories.ProductRepositoryInterface;
 
-@Component
+@Service
 public class ProductService implements ProductServiceInterface{
   @Autowired
   private ProductRepositoryInterface productRepositoryInterface;
