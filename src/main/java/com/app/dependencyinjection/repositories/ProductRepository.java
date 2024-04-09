@@ -2,8 +2,11 @@ package com.app.dependencyinjection.repositories;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.app.dependencyinjection.models.Product;
 
+@Component
 public class ProductRepository implements ProductRepositoryInterface {
   List<Product> products;
 

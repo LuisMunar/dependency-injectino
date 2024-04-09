@@ -3,15 +3,16 @@ package com.app.dependencyinjection.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.app.dependencyinjection.models.Product;
 import com.app.dependencyinjection.repositories.ProductRepository;
 
+@Component
 public class ProductService implements ProductServiceInterface{
+  @Autowired
   private ProductRepository productRepository;
-
-  public ProductService() {
-    this.productRepository = new ProductRepository();
-  }
 
   @Override
   public List<Product> getProducts() {
