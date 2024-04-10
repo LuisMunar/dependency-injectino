@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.app.dependencyinjection.models.Product;
@@ -11,6 +12,7 @@ import com.app.dependencyinjection.repositories.ProductRepositoryInterface;
 
 @Service
 public class ProductService implements ProductServiceInterface{
+  @Qualifier("productRepositoryII")
   @Autowired
   private ProductRepositoryInterface productRepositoryInterface;
 
