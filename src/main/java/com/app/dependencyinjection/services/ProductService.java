@@ -12,7 +12,7 @@ import com.app.dependencyinjection.repositories.ProductRepositoryInterface;
 
 @Service
 public class ProductService implements ProductServiceInterface{
-  @Qualifier("productRepositoryII")
+  @Qualifier("productRepository")
   @Autowired
   private ProductRepositoryInterface productRepositoryInterface;
 

@@ -3,10 +3,12 @@ package com.app.dependencyinjection.repositories;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import com.app.dependencyinjection.models.Product;
 
+@Primary
 @Repository
 public class ProductRepositoryII implements ProductRepositoryInterface {
   @Override
